@@ -6,7 +6,6 @@ A simple browser-based Rock Paper Scissors game created with HTML, CSS, and Java
 
 - Play against the computer
 - Score tracking
-- Responsive design
 - Simple, intuitive interface
 
 ## How to Play
