@@ -1,0 +1,242 @@
+:root {
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --accent: #e74c3c;
+  --light: #ecf0f1;
+  --dark: #2c3e50;
+  --win: #2ecc71;
+  --lose: #e74c3c;
+  --draw: #f39c12;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: var(--light);
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--light);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px;
+  background: var(--secondary);
+  border-radius: 3px;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+
+.score {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.score h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.score p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.choice {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.choice::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.choice:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.7);
+}
+
+.choice:hover::before {
+  opacity: 1;
+}
+
+.choice i {
+  font-size: 3rem;
+  color: var(--light);
+}
+
+.result {
+  margin: 2rem 0;
+  font-size: 1.5rem;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-text {
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-top: 0.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.win {
+  background-color: var(--win);
+  color: white;
+}
+
+.lose {
+  background-color: var(--lose);
+  color: white;
+}
+
+.draw {
+  background-color: var(--draw);
+  color: white;
+}
+
+.reset {
+  padding: 0.8rem 2rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.reset:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.choice-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.choice-display {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.player-choice,
+.computer-choice {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  min-width: 120px;
+}
+
+.battle-text {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 1rem;
+  align-self: center;
+}
+
+@media (max-width: 600px) {
+  .choices {
+    gap: 1rem;
+  }
+
+  .choice {
+    width: 80px;
+    height: 80px;
+  }
+
+  .choice i {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
